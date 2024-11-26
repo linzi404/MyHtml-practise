@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0a2a43;
+    min-height: 1500px;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before {
+    /* 
+        与背景颜色相同的线性渐变加上后面的颜色混叠，能够在底部达到模糊边缘的效果，
+        使得边缘不会那么明显，图像能够更好地融入背景区域。
+        不知道啥设计原理....
+    */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #0a2a43, transparent);
+    /*transparent能达到一个完全透明的效果*/
+    z-index: 1000;
+    /* z-index 在界面覆盖中的优先级，数值越大，优先级越高 */
+
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a2a43;
+    z-index: 1000;
+    /*  mix-blend-mode 用于控制元素的内容如何与其父元素的背景以及其他元素的内容进行混合 */
+    mix-blend-mode: color;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* object-fit 定义了图像或视频如何缩放以适应其父容器的大小和纵横比 */
+    pointer-events: none;
+}
+
+#text {
+    position: relative;
+    color: white;
+    font-size: 6vw;
+    z-index: 1;
+
+}
+#road{
+    z-index: 2;
+}

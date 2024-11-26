@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+<body>
+    <section>
+        <h1>
+            Be aware of all copycat youtubers!
+        </h1>
+        <span class="curve">
+            <img src="./images/curve.png">
+        </span>
+    </section>
+    <script >
+        var scroll = document.querySelector('.curve');
+        window.addEventListener ('scroll',function(){
+
+            var value = 1 + window.scrollY/(-500);
+            scroll.style.transform = `scaleY(${value})`
+
+
+
+        })
+
+    </script>
+
+
+
+</body>
+</html>
